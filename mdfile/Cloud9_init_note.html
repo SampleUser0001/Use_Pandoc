@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cloud9_init_note.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cloud9-init-note">Cloud9 init note</h1>
+<p>Cloud9を起動したときに行うことの備忘録。</p>
+<ul>
+<li><a href="#cloud9-init-note">Cloud9 init note</a>
+<ul>
+<li><a href="#git">git</a>
+<ul>
+<li><a href="#%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A">アカウントの設定</a></li>
+<li><a href="#%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%AE%E8%A8%AD%E5%AE%9A">エディタの設定</a>
+<ul>
+<li><a href="#%E6%B0%B8%E7%B6%9A">永続</a></li>
+<li><a href="#%E4%B8%80%E6%99%82">一時</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#java">Java</a></li>
+<li><a href="#java%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Javaインストール</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a>- <a href="#cloud9-init-note">Cloud9 init note</a></li>
+</ul>
+</li>
+<li><a href="#git">git</a>
+<ul>
+<li><a href="#%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A">アカウントの設定</a></li>
+<li><a href="#%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%AE%E8%A8%AD%E5%AE%9A">エディタの設定</a>
+<ul>
+<li><a href="#%E6%B0%B8%E7%B6%9A">永続</a></li>
+<li><a href="#%E4%B8%80%E6%99%82">一時</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#java">Java</a></li>
+<li><a href="#java%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Javaインストール</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</li>
+<li><a href="#maven">Maven</a></li>
+<li><a href="#maven%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Mavenインストール</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83-1">参考</a></li>
+</ul>
+</li>
+<li><a href="#ant">ant</a>
+<ul>
+<li><a href="#ant%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">antインストール</a></li>
+</ul>
+</li>
+<li><a href="#jd-cli">jd-cli</a></li>
+<li><a href="#telnet">telnet</a>
+<ul>
+<li><a href="#telnet%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">telnetインストール</a></li>
+</ul>
+</li>
+<li><a href="#docker">docker</a>
+<ul>
+<li><a href="#docker%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">dockerインストール</a></li>
+</ul>
+</li>
+<li><a href="#docker-compose">docker-compose</a>
+<ul>
+<li><a href="#docker-compose%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">docker-composeインストール</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E3%82%B5%E3%82%A4%E3%83%88">参考サイト</a></li>
+</ul>
+</li>
+<li><a href="#goofys">goofys</a>
+<ul>
+<li><a href="#goofys%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">goofysインストール</a></li>
+<li><a href="#%E8%87%AA%E5%8B%95%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A">自動マウント設定</a></li>
+<li><a href="#%E5%8F%82%E8%80%83-2">参考</a></li>
+</ul>
+</li>
+<li><a href="#vuejs">Vue.js</a>
+<ul>
+<li><a href="#%E6%BA%96%E5%82%99">準備</a></li>
+<li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#init-%E5%88%A5%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">init 別パターン</a></li>
+<li><a href="#%E5%8F%82%E8%80%83-3">参考</a></li>
+</ul>
+</li>
+<li><a href="#maven">Maven</a></li>
+<li><a href="#maven%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Mavenインストール</a>
+<ul>
+<li><a href="#%E5%8F%82%E8%80%83-1">参考</a></li>
+</ul>
+</li>
+<li><a href="#ant">ant</a>
+<ul>
+<li><a href="#ant%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">antインストール</a></li>
+</ul>
+</li>
+<li><a href="#jd-cli">jd-cli</a></li>
+<li><a href="#telnet">telnet</a>
+<ul>
+<li><a href="#telnet%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">telnetインストール</a></li>
+</ul>
+</li>
+<li><a href="#docker">docker</a>
+<ul>
+<li><a href="#docker%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">dockerインストール</a></li>
+</ul>
+</li>
+<li><a href="#docker-compose">docker-compose</a>
+<ul>
+<li><a href="#docker-compose%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">docker-composeインストール</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E3%82%B5%E3%82%A4%E3%83%88">参考サイト</a></li>
+</ul>
+</li>
+<li><a href="#goofys">goofys</a>
+<ul>
+<li><a href="#goofys%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">goofysインストール</a></li>
+<li><a href="#%E8%87%AA%E5%8B%95%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A">自動マウント設定</a></li>
+<li><a href="#%E5%8F%82%E8%80%83-2">参考</a></li>
+</ul>
+</li>
+<li><a href="#vuejs">Vue.js</a>
+<ul>
+<li><a href="#%E6%BA%96%E5%82%99">準備</a></li>
+<li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</a></li>
+<li><a href="#init">init</a></li>
+<li><a href="#init-%E5%88%A5%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">init 別パターン</a></li>
+<li><a href="#%E5%8F%82%E8%80%83-3">参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="git">git</h2>
+<pre class="hljs"><code><div>ec2-user:~/environment $ git --version
+git version 2.14.5
+</div></code></pre>
+<h3 id="%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A">アカウントの設定</h3>
+<pre class="hljs"><code><div>git config --global user.name &quot;Your Name&quot;
+git config --global user.email you@example.com
+</div></code></pre>
+<h3 id="%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%AE%E8%A8%AD%E5%AE%9A">エディタの設定</h3>
+<h4 id="%E6%B0%B8%E7%B6%9A">永続</h4>
+<pre class="hljs"><code><div>cd 
+vi .bashrc
+</div></code></pre>
+<pre class="hljs"><code><div>    # git config --global core.editor /usr/bin/nano
+    git config --global core.editor /usr/bin/vim
+</div></code></pre>
+<h4 id="%E4%B8%80%E6%99%82">一時</h4>
+<p>git config --global core.editor 'vim -c &quot;set fenc=utf-8&quot;'</p>
+<h2 id="java">Java</h2>
+<p>インストールされているが…</p>
+<pre class="hljs"><code><div>ec2-user:~/environment $ java -version
+java version &quot;1.7.0_251&quot;
+OpenJDK Runtime Environment (amzn-2.6.21.0.82.amzn1-x86_64 u251-b02)
+OpenJDK 64-Bit Server VM (build 24.251-b02, mixed mode)
+</div></code></pre>
+<h2 id="java%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Javaインストール</h2>
+<pre class="hljs"><code><div>sudo yum -y update
+sudo yum -y install java-1.8.0-openjdk-devel
+</div></code></pre>
+<pre class="hljs"><code><div>sudo update-alternatives --config java
+</div></code></pre>
+<pre class="hljs"><code><div>sudo update-alternatives --config javac
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://docs.aws.amazon.com/ja_jp/cloud9/latest/user-guide/sample-java.html</p>
+<h2 id="maven">Maven</h2>
+<p>インストールされていない。</p>
+<h2 id="maven%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Mavenインストール</h2>
+<pre class="hljs"><code><div>sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+</div></code></pre>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p>https://docs.aws.amazon.com/ja_jp/cloud9/latest/user-guide/sample-java.html</p>
+<h2 id="ant">ant</h2>
+<p>いらないかもしれないが入れたのでメモを残す。</p>
+<h3 id="ant%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">antインストール</h3>
+<pre class="hljs"><code><div>wget https://ftp.yz.yamagata-u.ac.jp/pub/network/apache//ant/binaries/apache-ant-1.10.7-bin.tar.gz
+tar zxvf apache-ant-1.10.7-bin.tar.gz
+sudo mkdir /usr/share/ant
+sudo mv apache-ant-1.10.7 /usr/share/ant
+sudo ln -s /usr/share/ant/apache-ant-1.10.7/bin/ant /usr/bin/ant
+</div></code></pre>
+<p>※yumのantは古いため使わない。</p>
+<h2 id="jd-cli">jd-cli</h2>
+<p>Javaの逆コンパイルツール。</p>
+<p>※バージョンは事前に確認。</p>
+<pre class="hljs"><code><div>mkdir tmp
+cd tmp
+wget https://github.com/kwart/jd-cli/releases/download/jd-cmd-1.1.0.Final/jd-cli-1.1.0.Final-dist.tar.gz
+tar -zxvf jd-cli-1.1.0.Final-dist.tar.gz
+sudo cp jd-cli /usr/local/bin/
+sudo cp jd-cli.jar /usr/local/bin/
+cd ..
+</div></code></pre>
+<pre class="hljs"><code><div>jd-cli --version
+</div></code></pre>
+<h2 id="telnet">telnet</h2>
+<h3 id="telnet%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">telnetインストール</h3>
+<pre class="hljs"><code><div>sudo yum -y install telnet
+</div></code></pre>
+<h2 id="docker">docker</h2>
+<p>入ってたっけ…？記憶にない。</p>
+<h3 id="docker%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">dockerインストール</h3>
+<pre class="hljs"><code><div>sudo yum install docker
+</div></code></pre>
+<h2 id="docker-compose">docker-compose</h2>
+<h3 id="docker-compose%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">docker-composeインストール</h3>
+<pre class="hljs"><code><div>sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+</div></code></pre>
+<p>※バージョンは参考サイトから確認。</p>
+<h3 id="%E5%8F%82%E8%80%83%E3%82%B5%E3%82%A4%E3%83%88">参考サイト</h3>
+<p>https://qiita.com/youtangai/items/ff67ceff5497a0e0b1af</p>
+<h2 id="goofys">goofys</h2>
+<p>S3バケットをEC2のストレージとしてマウントすることができる。</p>
+<h3 id="goofys%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">goofysインストール</h3>
+<p>S3バケットは作成済み、AWS CLIは設定済みの前提。</p>
+<p>go, fuseインストール</p>
+<pre class="hljs"><code><div>sudo yum install golang fuse
+</div></code></pre>
+<p>goofysインストール</p>
+<pre class="hljs"><code><div>export GOPATH=$HOME/go
+go get github.com/kahing/goofys
+go install github.com/kahing/goofys
+</div></code></pre>
+<p>S3マウント</p>
+<pre class="hljs"><code><div>mkdir ~/mount-goofys
+./go/bin/goofys kohei-goofys ~/mount-goofys
+</div></code></pre>
+<h3 id="%E8%87%AA%E5%8B%95%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E8%A8%AD%E5%AE%9A">自動マウント設定</h3>
+<p>上記だけだと再起動したときにマウントが解除されてしまう。<br>
+参考サイトに手順が書いてあるが、まだ対応していない。<br>
+（どこにマウントしたらいいか、考える。）</p>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p><a href="https://qiita.com/kooohei/items/a14f22cb0381342d1861">Qiita : goofysを使ってAmazon LinuxにS3をマウントする。</a></p>
+<h2 id="vuejs">Vue.js</h2>
+<h3 id="%E6%BA%96%E5%82%99">準備</h3>
+<pre class="hljs"><code><div>ec2-user:~/environment/Sample_Vue $ node -v
+v10.19.0
+ec2-user:~/environment/Sample_Vue $ npm -v
+6.13.4
+</div></code></pre>
+<h3 id="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</h3>
+<p>npmを入れた記憶がないが…まあいいか。</p>
+<pre class="hljs"><code><div>npm install -g @vue/cli
+npm install -g @vue/cli-service-global
+</div></code></pre>
+<pre class="hljs"><code><div>ec2-user:~/environment/Sample_Vue/test-vue (master) $ vue -V
+@vue/cli 4.5.3
+</div></code></pre>
+<h3 id="init">init</h3>
+<pre class="hljs"><code><div>vue create test-vue
+cd test-vue
+
+touch  vue.config.js
+</div></code></pre>
+<p>vue.config.jsの中身</p>
+<pre class="hljs"><code><div>module.exports = {
+  devServer: {
+    disableHostCheck: true
+  }
+}
+</div></code></pre>
+<pre class="hljs"><code><div>npm run serve
+</div></code></pre>
+<p>http://&lt;IPアドレス&gt;:8080<br>
+にアクセス</p>
+<h3 id="init-%E5%88%A5%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">init 別パターン</h3>
+<p><a href="./Vuejs_init/index.html">公式サンプル</a></p>
+<h3 id="%E5%8F%82%E8%80%83">参考</h3>
+<p><a href="https://qiita.com/watataku/items/26f2ce546fcd562e4b46">Qitt:Vue.jsについての基礎(インストール)</a><br>
+<a href="https://qiita.com/tamusan100/items/32acfd5e70336f33273f">Qiita:AWS Cloud9 で Vue.js を使う</a></p>
+
+</body>
+</html>
