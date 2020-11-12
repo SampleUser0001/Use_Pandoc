@@ -1,4 +1,4 @@
-# pandocを使用してMarkdown→pandoc変換してみる
+# pandocを使用してMarkdown→HTML変換してみる
 
 ## 実行
 
